@@ -4,7 +4,7 @@
 Acquires user's preferences by simple bisect search using human binary input.
 '''
 
-__version__ = "0.5"
+__version__ = "0.6"
 
 __author__ = "Przemysław Kowalczyk <kontakt@pkowalczyk.pl>"
 __license__ = "MIT"
@@ -32,9 +32,16 @@ def get_pref(line, result):
 
 if __name__ == "__main__":
     path_load = None
-    path_load = 'filmy3.txt'
+    path_save = None
+    
+    path_load = 'filmy3.txt' #DELETE
+    path_save = 'filmy3save.txt' #DELETE
+
     if path_load == None:
-        path_load = prompt_for_input("Insert file path: ")
+        path_load = prompt_for_input("Insert load file path: ")
+
+    if path_save == None:
+        path_save = prompt_for_input("Insert save file path: ")
 
     with open(path_load) as f:
         lines = [line.rstrip() for line in  f.readlines()]
@@ -46,3 +53,5 @@ if __name__ == "__main__":
         get_pref(line, result)
 
     print (result)
+    with open(path_save, 'w') as f:
+        f.writelines([line+'\n' for line in  result])
