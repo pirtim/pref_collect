@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 Acquires user's preferences by simple bisect search using human binary input.
+Ongoing development. The goal is to add some modal logic, because state of human mind is unstable and often unrational. 
 '''
 
 __version__ = "0.6"
